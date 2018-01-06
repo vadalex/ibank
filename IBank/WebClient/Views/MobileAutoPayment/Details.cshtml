@@ -1,0 +1,91 @@
+﻿@using System.Web.Optimization
+@using MDLS = WebClient.Models;
+@model MDLS.MobileAutoPayModel
+
+@{
+    ViewBag.Title = "Детали автооплаты";
+    Layout = "~/Views/Shared/_MainLayoutPage.cshtml";
+}
+
+@Styles.Render("~/Home/Payments/css")
+@Styles.Render("~/History/css")
+@Styles.Render("~/MobileAutopay/css")
+
+<div class="personal-info">
+    <h4>Информация о автооплате</h4>
+    <hr/>
+    <table>
+        <tbody>
+        <tr>
+            <td>
+                Оператор
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Operator)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Номер телефона
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.MobileNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Сумма
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Amount)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Номер карты
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.CardNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Интервал
+            </td>
+
+            <td>
+                Минуты: @Html.DisplayFor(model => model.IntervalMinutes) Часы: @Html.DisplayFor(model => model.IntervalHours) Дни: @Html.DisplayFor(model => model.IntervalDays)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Время старта
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.StartDate)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Время последней оплаты
+            </td>
+
+            <td>
+                @{
+                    string mess = (Model.LastPayDate == new DateTime(2000, 1, 1, 1, 1, 1) ? "Ни разу не оплачивалось" : Model.LastPayDate.ToString());
+                }
+                @Html.DisplayFor(model => mess)
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<p style="margin-left: 10px;">
+    @Html.ActionLink("Назад", "Index", null, new { @class = "button" })
+</p>

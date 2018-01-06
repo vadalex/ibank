@@ -1,0 +1,82 @@
+﻿@using System.Web.Optimization
+@using MyWebClient = WebClient;
+
+@model IEnumerable<MyWebClient.Models.CardAccountModel>
+
+@Styles.Render("~/CardAccountsTable/css")
+
+<table class="ibTable">
+    <tr>
+        <th>
+        </th>
+        <th>
+            Наименование
+        </th>
+        <th>
+            Вид карточки
+        </th>
+        <th>
+            Номер карты
+        </th>
+        <th>
+            Статус
+        </th>
+        <th>
+            Остаток
+        </th>
+        <th>
+            Валюта
+        </th>
+        <th>
+            Срок действия
+        </th>
+    </tr>
+
+    @if (!Model.Any())
+    {
+        <tr>
+            <td style="height: 40px;">
+                <span style="position: absolute; font-size: 120%; font-weight: bold; color: red">У вас нету платежных карт</span>
+            </td>
+        </tr>
+    }
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.CheckBox("item.CardAccount.CardAccountID", true, new { Value = item.CardAccount.CardAccountID })
+            </td>
+            <td class="card-name">
+                @Html.DisplayFor(modelItem => item.CardAccount.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardAccount.CardType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardNumber)
+            </td>
+            <td class="status">
+                @Html.DisplayFor(modelItem => item.CardAccount.Status)
+            </td>
+            <td>
+                @{
+        string balanceStr = item.Balance.ToString("0.##");
+                }
+                @Html.DisplayFor(modelItem => balanceStr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency)
+            </td>
+            <td>
+                @{
+        string expiredDateStr = item.CardAccount.ExpiredDate.ToShortDateString();
+                }
+                @Html.DisplayFor(modelItem => expiredDateStr)
+            </td>
+            @Html.HiddenFor(modelItem => item.CardAccount.IsLocked)
+        </tr>
+    }
+
+</table>
+

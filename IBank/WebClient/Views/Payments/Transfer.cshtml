@@ -1,0 +1,75 @@
+﻿@using Modols = WebClient.Models;
+
+@model Modols.TransferModel
+
+@{
+    ViewBag.Title = "Денежный перевод";
+    Layout = "~/Views/Shared/_PaymentsLayoutPage.cshtml";
+}
+
+<div class="blue-header">
+    <span>Перевод средств</span>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    Html.RenderAction("CardAccountsPartial", "CardAccount", new { cardId = Model.CardId });
+
+    <div class="payment-info">
+        <span style="font-size: 120%; font-weight: bold;">Данные перевода</span><br/>
+        <br />
+        <span style="color: red">@Html.ValidationMessage("CustomError")</span><br/>
+        <br />
+        
+        <span style="color: red">Обязательные поля почемены знаком - *</span><br />
+        <table>
+            <tbody>
+                <tr>
+                    <td>Номер карты получателя <span style="color: red">*</span></td>
+                    <td>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.TargetCardAccountNumber, "", new {@class = "text-danger"})<br/>
+                            @Html.EditorFor(model => model.TargetCardAccountNumber, new {htmlAttributes = new {@class = "form-control"}})
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Сумма перевода <span style="color: red">*</span></td>
+                    <td>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })<br />
+                            @Html.EditorFor(model => model.Amount, new {htmlAttributes = new {@class = "form-control"}})
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Комментарий </td>
+                    <td>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })<br />
+                            @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </td>
+                </tr>
+@if (!Model.FromOwnPayments) {
+                <tr>
+                    <td>В собственные платежи? </td>
+                    <td>
+                        <div>
+                            @Html.CheckBox("ToOwnPayments", false, new { style = "width:34px" })
+                        </div>
+                    </td>
+                </tr>
+}
+            </tbody>
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Перевести" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

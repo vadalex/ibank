@@ -1,0 +1,34 @@
+﻿table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    table.operations td {
+        padding: 0px;
+    }
+
+    table.operations .ibButton {
+        float: left;
+        margin-right: 5px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        white-space: nowrap;
+    }
+
+.ibButton button:hover {
+    background: #edb640;
+    border-bottom: 7px #e5a115 solid;
+}
+
+.ibButton button {
+    display: inline-block;
+    font-size: 14px;
+    color: #fff;
+    line-height: 29px;
+    text-decoration: none;
+    background: #e8af3e;
+    border: none;
+    border-bottom: 7px #df9b14 solid;
+    padding: 0 20px;
+    cursor: pointer;
+}

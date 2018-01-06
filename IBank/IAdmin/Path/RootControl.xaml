@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="IAdmin.Path.RootControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+			 
+             xmlns:co="clr-namespace:UIControlLibrary.Components;assembly=UIControlLibrary"
+			 xmlns:co2="clr-namespace:IAdmin.AutentificationsAdmin"
+             xmlns:ao="clr-namespace:IAdmin.AdminActions"
+			 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+
+		<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">Выбор операции</TextBlock>		
+
+		<co:ButtonLink ButtonName="Просмотреть список валютных счетов" LinkType="{x:Type ao:ListDefaultCurrenciesAccountsControl}"/>
+
+        <co:ButtonLink ButtonName="Изменить курс валют" LinkType="{x:Type ao:EditCurrency}"/>
+
+		<co:ButtonLink ButtonName="Изменить / Добавить / Удалить учетную запись оператора" LinkType="{x:Type ao:ViewCRUDOperatorControl}"/>	
+
+		<co:ButtonLink ButtonName="Изменить / Добавить / Удалить учетную запись клиента" LinkType="{x:Type ao:ViewCRUDClientControl}"/>	
+
+		<co:ButtonLink ButtonName="Изменить / Добавить / Удалить банк-счет" LinkType="{x:Type ao:ViewCRUDBankAccountControl}"/>
+
+		<co:ButtonLink ButtonName="Изменить / Добавить / Удалить карт-счет" LinkType="{x:Type ao:ViewCRUDCardAccountControl}"/>
+		
+		<co:ButtonLink ButtonName="Сменить пароль администратора" LinkType="{x:Type ao:EditAdminPass}"/>
+
+		
+		<co:ButtonLink x:Name="UILOgout" ButtonName="Выйти из учетной записи администратора" >
+			<co:ButtonLink.LinkObj>
+				<co2:LoginControl />
+			</co:ButtonLink.LinkObj>
+		</co:ButtonLink>
+
+	</StackPanel>
+</UserControl>

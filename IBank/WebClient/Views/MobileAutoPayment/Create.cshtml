@@ -1,0 +1,118 @@
+﻿@using System.Web.Optimization
+@using MDLS = WebClient.Models;
+
+@model MDLS.MobileAutoPayModel
+
+@{
+    ViewBag.Title = "Создание автооплаты";
+    Layout = "~/Views/Shared/_MainLayoutPage.cshtml";
+}
+
+@Styles.Render("~/Home/Payments/css")
+@Styles.Render("~/History/css")
+@Styles.Render("~/MobileAutopay/css")
+
+<div class="blue-header">
+    <span>Создание автооплаты мобильной связи</span>
+</div>
+
+@using (Html.BeginForm("Create", "MobileAutoPayment"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    Html.RenderAction("CardAccountsPartial", "CardAccount", new { cardId = Model.CardAccountID });
+    
+    <div class="payment-info">
+        <span style="font-size: 120%; font-weight: bold;">Данные автооплаты</span><br />
+        <br />
+        <span style="color: red">@Html.ValidationMessage("CustomError")</span><br />
+        <br />
+
+        <span style="color: red">Все поля обязательны для заполнения</span><br />
+        <table>
+            <tbody>
+                <tr>
+                    <td>Оператор </td>
+                    <td>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Operator, "", new {@class = "text-danger"})<br/>
+                            <select id="Operator" name="Operator">
+                                <option @(Model.Operator == "Velcom" ? "selected" : "") value="Velcom">Velcom</option>
+                                <option @(Model.Operator == "MTS" ? "selected" : "") value="MTS">MTC</option>
+                                <option @(Model.Operator == "Life" ? "selected" : "") value="Life">Life :)</option>
+                                <option @(Model.Operator == "Dialog" ? "selected" : "") value="Dialog">Diallog</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Номер телефона </td>
+                    <td>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })<br />
+                            @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Сумма </td>
+                    <td>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })<br />
+                            @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Интервал оплаты </td>
+                    <td style="padding-left: 20px">
+                        <div>
+                            @Html.ValidationMessageFor(model => model.IntervalMinutes, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.IntervalHours, "", new {@class = "text-danger"})
+                            @Html.ValidationMessageFor(model => model.IntervalDays, "", new { @class = "text-danger" })
+                        </div>
+                        <div>
+                           Минут: @Html.EditorFor(model => model.IntervalMinutes, new { htmlAttributes = new { @class = "form-control very-short-input" } })
+                           Часов: @Html.EditorFor(model => model.IntervalHours, new { htmlAttributes = new { @class = "form-control very-short-input" } })
+                           Дней: @Html.EditorFor(model => model.IntervalDays, new { htmlAttributes = new { @class = "form-control short-input" } })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Время первой оплаты </td>
+                    <td style="padding-left: 20px">
+                        <div>
+                            @Html.ValidationMessageFor(model => model.StartMinutes, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.StartHours, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div>
+                            @{
+                                string format = @"dd/MM/yyyy";
+                            }
+                            Минут: @Html.EditorFor(model => model.StartMinutes, new {htmlAttributes = new {@class = "form-control very-short-input"}})
+                            Часов: @Html.EditorFor(model => model.StartHours, new {htmlAttributes = new {@class = "form-control very-short-input"}})
+                            <input type="hidden" name="hiddenTicks" id="hiddenTicks" value="@Model.StartDate.Ticks"/>
+                            <input type="hidden" name="hiddenDay" id="hiddenDay" value="@Model.StartDate.Day"/>
+                            <input type="hidden" name="hiddenMonth" id="hiddenMonth" value="@Model.StartDate.Month" />
+                            <input type="hidden" name="hiddenYear" id="hiddenYear" value="@Model.StartDate.Year"/>
+                            <input type="hidden" name="hiddenDate" id="hiddenDate" value="@Model.StartDate.ToString(format)" />
+                            Дата: <input class="form-control short-input text-box single-line" readonly="readonly" data-val="true" data-val-required="Введите время первого платежа" id="StartDate" name="StartDate" type="datetime" value="">
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Создать" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@Scripts.Render("~/bundles/mobileAutopayCreate")

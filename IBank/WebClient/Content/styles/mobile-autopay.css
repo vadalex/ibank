@@ -1,0 +1,30 @@
+﻿.very-short-input {
+    width: 40px;
+    padding-left: 10px;
+    padding-right: 0;
+    margin-top: 19px;
+}
+
+.short-input {
+    width: 110px;
+    padding-left: 10px;
+    padding-right: 0;
+    margin-top: 15px;
+}
+
+select {
+    width: 446px;
+    height: 34px;
+    padding: 0 15px 0 15px;
+    line-height: 34px;
+    border: 1px #d1e7dc solid;
+    font-size: 18px;
+    color: #595d5b;
+    margin-bottom: 20px;
+}
+
+.payment-info img.ui-datepicker-trigger {
+    position: relative;
+    top: 12px;
+    left: 5px;
+}

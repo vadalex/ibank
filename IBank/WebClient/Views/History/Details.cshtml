@@ -1,0 +1,42 @@
+﻿@using WebClient.BusinessLogic
+@using Mdls = WebClient.Models;
+
+@model Mdls.HistoryPaymentDetails
+
+@{
+    ViewBag.Title = "MobileDetails";
+    Layout = "~/Views/Shared/_HistoryLayoutPage.cshtml";
+}
+
+
+<div class="personal-info" style="display: inline-block; width: inherit;">
+    <span style="font-size:120%; font-weight: bold;">Детали платежа</span><br />
+    <p></p>
+    <table>
+        <tbody>
+            @foreach (var key in Model.Dictionary.Keys)
+            {
+                <tr>
+                    <td>@(key + ":")</td>
+                    <td>@Model.Dictionary[key]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        @using (Html.BeginForm("Index", "History"))
+        {
+            <input type="hidden" name="item.CardAccount.CardAccountID" value="@Model.BackRouteValues["item.CardAccount.CardAccountID"]" />
+            <input type="hidden" name="datepicker-from" value="@Model.BackRouteValues["datepicker-from"]" />
+            <input type="hidden" name="datepicker-to" value="@Model.BackRouteValues["datepicker-to"]" />
+            <input type="hidden" name="arbitrary_payments" value="@Model.BackRouteValues["arbitrary_payments"]" />
+            <input type="hidden" name="ssisp_payments" value="@Model.BackRouteValues["ssisp_payments"]" />
+            <input type="hidden" name="mobile_payments" value="@Model.BackRouteValues["mobile_payments"]" />
+            <input type="hidden" name="transfer_payments" value="@Model.BackRouteValues["transfer_payments"]"/>
+            <div>
+                <input type="submit" style="width: 118px; margin-top: 10px; margin-left: 20px; margin-right: 20px;" value="Назад" id="details" class="btn btn-default" />
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,70 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Home/css")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+
+    <div class="main">
+        <div class="header clearfix">
+            <div class="logo head-element">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/images/logo2.png"/>
+                </a>
+            </div>
+            <div class="logout head-element ">
+                <img src="~/Content/images/clock.png" class="clock"/>
+                <span class="text">До окончания сеанса:</span>
+                <span class="text expired-time"></span>
+                <a href="@Url.Action("Logout", "Login")">
+                    <div class="logout-button">
+                        <span class="text">Выход</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li id="top-menu-home">
+                    <a href="@Url.Action("Index", "Home")"><div>ГЛАВНАЯ</div></a>
+                </li>
+                <li id="top-menu-payments">
+                    <a href="@Url.Action("Index", "Payments")"><div>ПЛАТЕЖИ И ПЕРЕВОДЫ</div></a>
+                </li>
+                <li id="top-menu-cards">
+                    <a href="@Url.Action("Index", "CardAccount")"><div>ПЛАТЕЖНЫЕ КАРТЫ</div></a>
+                </li>
+                <li id="top-menu-history">
+                    <a href="@Url.Action("Index", "History")"><div>ИСТОРИЯ ПЛАТЕЖЕЙ</div></a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="footer">
+        <hr/>        
+        <div style="float:left;text-align:left;margin-left:30px">
+            <p>© 2014, ОАО «Vadalex»</p>
+            <p>Минск, ул. Я. Коласа, д. 28</p>
+        </div>
+        <div style="float:right;text-align:right;margin-right:30px">
+            <p>Телефон: +375 29 896-59-59</p>
+            <p>E-mail: 93wadim93@tut.by</p>
+        </div>
+            <div style="clear:both"></div>        
+    </div>
+    @Scripts.Render("~/bundles/timer")
+    @Scripts.Render("~/bundles/ddl")
+    <script type="text/javascript">
+        $('#@ViewData["Active"]').addClass('active');
+    </script>
+</body>
+</html>

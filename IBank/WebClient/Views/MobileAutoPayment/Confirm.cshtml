@@ -1,0 +1,75 @@
+﻿@using System.Globalization
+@using System.Threading
+@using System.Web.Optimization
+@using MDLS = WebClient.Models;
+
+@model MDLS.MobileAutoPayModel
+
+
+@{
+    ViewBag.Title = "Подтверждение";
+    Layout = "~/Views/Shared/_MainLayoutPage.cshtml";
+}
+
+@Styles.Render("~/Home/Payments/css")
+@Styles.Render("~/History/css")
+@Styles.Render("~/MobileAutopay/css")
+
+@{
+    string language =  "ru";
+    string culture =  "RU";
+
+    Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(string.Format("{0}-{1}", language, culture));
+    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(string.Format("{0}-{1}", language, culture));
+}
+
+@using (Html.BeginForm("ConfirmAutoPay", "MobileAutoPayment"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="personal-info">
+        <span style="font-size:120%; font-weight: bold;">Данные автооплаты</span><br />
+        <p></p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Оператор: </td>
+                    <td>@Model.Operator</td>
+                </tr>
+                <tr>
+                    <td>Номер телефона: </td>
+                    <td>@Model.MobileNumber</td>
+                </tr>
+                <tr>
+                    <td>Номер карточки: </td>
+                    <td>@Model.CardNumber</td>
+                </tr>
+                <tr>
+                    <td>Сумма: </td>
+                    <td>@Model.Amount</td>
+                </tr>
+                <tr>
+                    <td>Интервал: </td>
+                    <td>Минуты: @Model.IntervalMinutes Часы: @Model.IntervalHours Дни: @Model.IntervalDays</td>
+                </tr>
+                <tr>
+                    <td>Дата первого платежа: </td>
+                    <td>@Model.StartDate</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="display: none">
+            @Html.EditorForModel(Model);
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Готово" class="btn btn-default" />
+                @Html.ActionLink("Назад", "Create", Model, new { @class = "button" })
+            </div>
+        </div>
+    </div>
+
+}
+

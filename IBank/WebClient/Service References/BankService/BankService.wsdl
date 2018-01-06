@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BankService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://internet-bank-service.azurewebsites.net/BankService.svc?xsd=xsd2" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://internet-bank-service.azurewebsites.net/BankService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://internet-bank-service.azurewebsites.net/BankService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/BankEntities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBankService_GetBankAccountById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountById" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetBankAccountById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetBankAccountByNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountByNumber" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetBankAccountByNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllBankAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBankAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllBankAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBankAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddBankAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddBankAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateBankAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateBankAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveBankAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveBankAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetBankAccountBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountBalance" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetBankAccountBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetNextBankAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNextBankAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetNextBankAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNextBankAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetPrevBankAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrevBankAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetPrevBankAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrevBankAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetNextCardAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNextCardAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetNextCardAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNextCardAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetPrevCardAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrevCardAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetPrevCardAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrevCardAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetNextOperators_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNextOperators" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetNextOperators_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNextOperatorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetPrevOperators_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrevOperators" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetPrevOperators_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrevOperatorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetCardAccountById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardAccountById" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetCardAccountById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardAccountByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetCardAccountByNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardAccountByNumber" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetCardAccountByNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardAccountByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllCardAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCardAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllCardAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCardAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetCardAccountsByCustomerId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardAccountsByCustomerId" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetCardAccountsByCustomerId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardAccountsByCustomerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddCardAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCardAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddCardAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCardAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateCardAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCardAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateCardAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCardAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveCardAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCardAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveCardAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCardAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_IsEnoughBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsEnoughBalance" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_IsEnoughBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsEnoughBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetCurrencyById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrencyById" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetCurrencyById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrencyByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllCurrency_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCurrency" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddCurrency_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCurrency" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateCurrency_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCurrency" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveCurrency_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCurrency" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveAllCurrency_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAllCurrency" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveAllCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAllCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetBankAccountCurrencyShortString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountCurrencyShortString" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetBankAccountCurrencyShortString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountCurrencyShortStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetEmployeeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeById" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetEmployeeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetEmployeeByLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByLogin" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetEmployeeByLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllAdminEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAdminEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllAdminEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAdminEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetArbitraryTransactionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArbitraryTransactionById" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetArbitraryTransactionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArbitraryTransactionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllArbitraryTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArbitraryTransactions" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllArbitraryTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllArbitraryTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddArbitraryTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddArbitraryTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddArbitraryTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddArbitraryTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateArbitraryTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArbitraryTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateArbitraryTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArbitraryTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveArbitraryTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveArbitraryTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveArbitraryTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveArbitraryTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_CreateArbitraryTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateArbitraryTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_CreateArbitraryTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateArbitraryTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetMobileTransactionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMobileTransactionById" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetMobileTransactionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMobileTransactionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllMobileTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMobileTransactions" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllMobileTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMobileTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddMobileTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMobileTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddMobileTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMobileTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateMobileTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMobileTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateMobileTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMobileTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveMobileTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMobileTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveMobileTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveMobileTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_CreateMobileTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMobileTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_CreateMobileTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMobileTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetTransferTransactionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferTransactionById" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetTransferTransactionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferTransactionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllTransferTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTransferTransactions" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllTransferTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTransferTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddTransferTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransferTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddTransferTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransferTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateTransferTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTransferTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateTransferTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTransferTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveTransferTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTransferTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveTransferTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTransferTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_CreateTransferTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTransferTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_CreateTransferTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTransferTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetSSISTransactionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSSISTransactionById" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetSSISTransactionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSSISTransactionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllSSISTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSSISTransactions" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllSSISTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSSISTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddSSISTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSSISTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddSSISTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSSISTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateSSISTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSSISTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateSSISTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSSISTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveSSISTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSSISTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_RemoveSSISTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSSISTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_CreateSSISTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSSISTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_CreateSSISTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSSISTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetArbitraryTransactionsByCardId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArbitraryTransactionsByCardId" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetArbitraryTransactionsByCardId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArbitraryTransactionsByCardIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetMobileTransactionsByCardId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMobileTransactionsByCardId" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetMobileTransactionsByCardId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMobileTransactionsByCardIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetSSISTransactionsByCardId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSSISTransactionsByCardId" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetSSISTransactionsByCardId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSSISTransactionsByCardIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetTransferTransactionsByCardId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferTransactionsByCardId" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetTransferTransactionsByCardId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferTransactionsByCardIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBankService">
+    <wsdl:operation name="GetBankAccountById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetBankAccountById" message="tns:IBankService_GetBankAccountById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetBankAccountByIdResponse" message="tns:IBankService_GetBankAccountById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountByNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetBankAccountByNumber" message="tns:IBankService_GetBankAccountByNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetBankAccountByNumberResponse" message="tns:IBankService_GetBankAccountByNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBankAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllBankAccounts" message="tns:IBankService_GetAllBankAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllBankAccountsResponse" message="tns:IBankService_GetAllBankAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBankAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddBankAccount" message="tns:IBankService_AddBankAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddBankAccountResponse" message="tns:IBankService_AddBankAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/UpdateBankAccount" message="tns:IBankService_UpdateBankAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/UpdateBankAccountResponse" message="tns:IBankService_UpdateBankAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBankAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/RemoveBankAccount" message="tns:IBankService_RemoveBankAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/RemoveBankAccountResponse" message="tns:IBankService_RemoveBankAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetBankAccountBalance" message="tns:IBankService_GetBankAccountBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetBankAccountBalanceResponse" message="tns:IBankService_GetBankAccountBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextBankAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetNextBankAccounts" message="tns:IBankService_GetNextBankAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetNextBankAccountsResponse" message="tns:IBankService_GetNextBankAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrevBankAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetPrevBankAccounts" message="tns:IBankService_GetPrevBankAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetPrevBankAccountsResponse" message="tns:IBankService_GetPrevBankAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextCardAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetNextCardAccounts" message="tns:IBankService_GetNextCardAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetNextCardAccountsResponse" message="tns:IBankService_GetNextCardAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrevCardAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetPrevCardAccounts" message="tns:IBankService_GetPrevCardAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetPrevCardAccountsResponse" message="tns:IBankService_GetPrevCardAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextOperators">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetNextOperators" message="tns:IBankService_GetNextOperators_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetNextOperatorsResponse" message="tns:IBankService_GetNextOperators_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrevOperators">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetPrevOperators" message="tns:IBankService_GetPrevOperators_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetPrevOperatorsResponse" message="tns:IBankService_GetPrevOperators_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardAccountById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetCardAccountById" message="tns:IBankService_GetCardAccountById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetCardAccountByIdResponse" message="tns:IBankService_GetCardAccountById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardAccountByNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetCardAccountByNumber" message="tns:IBankService_GetCardAccountByNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetCardAccountByNumberResponse" message="tns:IBankService_GetCardAccountByNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCardAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllCardAccounts" message="tns:IBankService_GetAllCardAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllCardAccountsResponse" message="tns:IBankService_GetAllCardAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardAccountsByCustomerId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetCardAccountsByCustomerId" message="tns:IBankService_GetCardAccountsByCustomerId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetCardAccountsByCustomerIdResponse" message="tns:IBankService_GetCardAccountsByCustomerId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCardAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddCardAccount" message="tns:IBankService_AddCardAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddCardAccountResponse" message="tns:IBankService_AddCardAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCardAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/UpdateCardAccount" message="tns:IBankService_UpdateCardAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/UpdateCardAccountResponse" message="tns:IBankService_UpdateCardAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCardAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/RemoveCardAccount" message="tns:IBankService_RemoveCardAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/RemoveCardAccountResponse" message="tns:IBankService_RemoveCardAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsEnoughBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/IsEnoughBalance" message="tns:IBankService_IsEnoughBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/IsEnoughBalanceResponse" message="tns:IBankService_IsEnoughBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetCurrencyById" message="tns:IBankService_GetCurrencyById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetCurrencyByIdResponse" message="tns:IBankService_GetCurrencyById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCurrency">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllCurrency" message="tns:IBankService_GetAllCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllCurrencyResponse" message="tns:IBankService_GetAllCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCurrency">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddCurrency" message="tns:IBankService_AddCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddCurrencyResponse" message="tns:IBankService_AddCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCurrency">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/UpdateCurrency" message="tns:IBankService_UpdateCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/UpdateCurrencyResponse" message="tns:IBankService_UpdateCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCurrency">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/RemoveCurrency" message="tns:IBankService_RemoveCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/RemoveCurrencyResponse" message="tns:IBankService_RemoveCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAllCurrency">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/RemoveAllCurrency" message="tns:IBankService_RemoveAllCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/RemoveAllCurrencyResponse" message="tns:IBankService_RemoveAllCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountCurrencyShortString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetBankAccountCurrencyShortString" message="tns:IBankService_GetBankAccountCurrencyShortString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetBankAccountCurrencyShortStringResponse" message="tns:IBankService_GetBankAccountCurrencyShortString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetEmployeeById" message="tns:IBankService_GetEmployeeById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetEmployeeByIdResponse" message="tns:IBankService_GetEmployeeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllEmployees" message="tns:IBankService_GetAllEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllEmployeesResponse" message="tns:IBankService_GetAllEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddEmployee" message="tns:IBankService_AddEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddEmployeeResponse" message="tns:IBankService_AddEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/UpdateEmployee" message="tns:IBankService_UpdateEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/UpdateEmployeeResponse" message="tns:IBankService_UpdateEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/RemoveEmployee" message="tns:IBankService_RemoveEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/RemoveEmployeeResponse" message="tns:IBankService_RemoveEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetEmployeeByLogin" message="tns:IBankService_GetEmployeeByLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetEmployeeByLoginResponse" message="tns:IBankService_GetEmployeeByLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAdminEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllAdminEmployees" message="tns:IBankService_GetAllAdminEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllAdminEmployeesResponse" message="tns:IBankService_GetAllAdminEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArbitraryTransactionById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetArbitraryTransactionById" message="tns:IBankService_GetArbitraryTransactionById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetArbitraryTransactionByIdResponse" message="tns:IBankService_GetArbitraryTransactionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArbitraryTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllArbitraryTransactions" message="tns:IBankService_GetAllArbitraryTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllArbitraryTransactionsResponse" message="tns:IBankService_GetAllArbitraryTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddArbitraryTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddArbitraryTransaction" message="tns:IBankService_AddArbitraryTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddArbitraryTransactionResponse" message="tns:IBankService_AddArbitraryTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArbitraryTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/UpdateArbitraryTransaction" message="tns:IBankService_UpdateArbitraryTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/UpdateArbitraryTransactionResponse" message="tns:IBankService_UpdateArbitraryTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveArbitraryTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/RemoveArbitraryTransaction" message="tns:IBankService_RemoveArbitraryTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/RemoveArbitraryTransactionResponse" message="tns:IBankService_RemoveArbitraryTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateArbitraryTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/CreateArbitraryTransaction" message="tns:IBankService_CreateArbitraryTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/CreateArbitraryTransactionResponse" message="tns:IBankService_CreateArbitraryTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileTransactionById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetMobileTransactionById" message="tns:IBankService_GetMobileTransactionById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetMobileTransactionByIdResponse" message="tns:IBankService_GetMobileTransactionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMobileTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllMobileTransactions" message="tns:IBankService_GetAllMobileTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllMobileTransactionsResponse" message="tns:IBankService_GetAllMobileTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMobileTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddMobileTransaction" message="tns:IBankService_AddMobileTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddMobileTransactionResponse" message="tns:IBankService_AddMobileTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobileTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/UpdateMobileTransaction" message="tns:IBankService_UpdateMobileTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/UpdateMobileTransactionResponse" message="tns:IBankService_UpdateMobileTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMobileTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/RemoveMobileTransaction" message="tns:IBankService_RemoveMobileTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/RemoveMobileTransactionResponse" message="tns:IBankService_RemoveMobileTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMobileTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/CreateMobileTransaction" message="tns:IBankService_CreateMobileTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/CreateMobileTransactionResponse" message="tns:IBankService_CreateMobileTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferTransactionById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetTransferTransactionById" message="tns:IBankService_GetTransferTransactionById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetTransferTransactionByIdResponse" message="tns:IBankService_GetTransferTransactionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTransferTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllTransferTransactions" message="tns:IBankService_GetAllTransferTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllTransferTransactionsResponse" message="tns:IBankService_GetAllTransferTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTransferTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddTransferTransaction" message="tns:IBankService_AddTransferTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddTransferTransactionResponse" message="tns:IBankService_AddTransferTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransferTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/UpdateTransferTransaction" message="tns:IBankService_UpdateTransferTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/UpdateTransferTransactionResponse" message="tns:IBankService_UpdateTransferTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTransferTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/RemoveTransferTransaction" message="tns:IBankService_RemoveTransferTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/RemoveTransferTransactionResponse" message="tns:IBankService_RemoveTransferTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTransferTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/CreateTransferTransaction" message="tns:IBankService_CreateTransferTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/CreateTransferTransactionResponse" message="tns:IBankService_CreateTransferTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSSISTransactionById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetSSISTransactionById" message="tns:IBankService_GetSSISTransactionById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetSSISTransactionByIdResponse" message="tns:IBankService_GetSSISTransactionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSSISTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllSSISTransactions" message="tns:IBankService_GetAllSSISTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllSSISTransactionsResponse" message="tns:IBankService_GetAllSSISTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSSISTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddSSISTransaction" message="tns:IBankService_AddSSISTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddSSISTransactionResponse" message="tns:IBankService_AddSSISTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSSISTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/UpdateSSISTransaction" message="tns:IBankService_UpdateSSISTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/UpdateSSISTransactionResponse" message="tns:IBankService_UpdateSSISTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSSISTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/RemoveSSISTransaction" message="tns:IBankService_RemoveSSISTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/RemoveSSISTransactionResponse" message="tns:IBankService_RemoveSSISTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSSISTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/CreateSSISTransaction" message="tns:IBankService_CreateSSISTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/CreateSSISTransactionResponse" message="tns:IBankService_CreateSSISTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArbitraryTransactionsByCardId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetArbitraryTransactionsByCardId" message="tns:IBankService_GetArbitraryTransactionsByCardId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetArbitraryTransactionsByCardIdResponse" message="tns:IBankService_GetArbitraryTransactionsByCardId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileTransactionsByCardId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetMobileTransactionsByCardId" message="tns:IBankService_GetMobileTransactionsByCardId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetMobileTransactionsByCardIdResponse" message="tns:IBankService_GetMobileTransactionsByCardId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSSISTransactionsByCardId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetSSISTransactionsByCardId" message="tns:IBankService_GetSSISTransactionsByCardId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetSSISTransactionsByCardIdResponse" message="tns:IBankService_GetSSISTransactionsByCardId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferTransactionsByCardId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetTransferTransactionsByCardId" message="tns:IBankService_GetTransferTransactionsByCardId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetTransferTransactionsByCardIdResponse" message="tns:IBankService_GetTransferTransactionsByCardId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBankService" type="tns:IBankService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBankAccountById">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetBankAccountById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountByNumber">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetBankAccountByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBankAccounts">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllBankAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBankAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/UpdateBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBankAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/RemoveBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountBalance">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetBankAccountBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextBankAccounts">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetNextBankAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrevBankAccounts">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetPrevBankAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextCardAccounts">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetNextCardAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrevCardAccounts">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetPrevCardAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextOperators">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetNextOperators" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrevOperators">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetPrevOperators" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardAccountById">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetCardAccountById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardAccountByNumber">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetCardAccountByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCardAccounts">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllCardAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardAccountsByCustomerId">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetCardAccountsByCustomerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCardAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddCardAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCardAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/UpdateCardAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCardAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/RemoveCardAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsEnoughBalance">
+      <soap:operation soapAction="http://tempuri.org/IBankService/IsEnoughBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrencyById">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetCurrencyById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCurrency">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllCurrency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCurrency">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddCurrency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCurrency">
+      <soap:operation soapAction="http://tempuri.org/IBankService/UpdateCurrency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCurrency">
+      <soap:operation soapAction="http://tempuri.org/IBankService/RemoveCurrency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAllCurrency">
+      <soap:operation soapAction="http://tempuri.org/IBankService/RemoveAllCurrency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountCurrencyShortString">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetBankAccountCurrencyShortString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeById">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetEmployeeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployee">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <soap:operation soapAction="http://tempuri.org/IBankService/UpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEmployee">
+      <soap:operation soapAction="http://tempuri.org/IBankService/RemoveEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByLogin">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetEmployeeByLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAdminEmployees">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllAdminEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArbitraryTransactionById">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetArbitraryTransactionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllArbitraryTransactions">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllArbitraryTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddArbitraryTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddArbitraryTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArbitraryTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/UpdateArbitraryTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveArbitraryTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/RemoveArbitraryTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateArbitraryTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/CreateArbitraryTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileTransactionById">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetMobileTransactionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMobileTransactions">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllMobileTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMobileTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddMobileTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobileTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/UpdateMobileTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMobileTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/RemoveMobileTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMobileTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/CreateMobileTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferTransactionById">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetTransferTransactionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTransferTransactions">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllTransferTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTransferTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddTransferTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransferTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/UpdateTransferTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTransferTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/RemoveTransferTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTransferTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/CreateTransferTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSSISTransactionById">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetSSISTransactionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSSISTransactions">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllSSISTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSSISTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddSSISTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSSISTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/UpdateSSISTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSSISTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/RemoveSSISTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSSISTransaction">
+      <soap:operation soapAction="http://tempuri.org/IBankService/CreateSSISTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArbitraryTransactionsByCardId">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetArbitraryTransactionsByCardId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileTransactionsByCardId">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetMobileTransactionsByCardId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSSISTransactionsByCardId">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetSSISTransactionsByCardId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferTransactionsByCardId">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetTransferTransactionsByCardId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BankService">
+    <wsdl:port name="BasicHttpBinding_IBankService" binding="tns:BasicHttpBinding_IBankService">
+      <soap:address location="http://internet-bank-service.azurewebsites.net/BankService.svc/BankService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

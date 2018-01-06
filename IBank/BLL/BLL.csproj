@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6D14E23-51D2-4D5E-A7ED-E05BCEB8FBE4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Data.SqlXml" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Service References\ServiceReference2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UILogic\BaseOperationGetFullList.cs" />
+    <Compile Include="UILogic\Operations\CheckAutentificationAdmin.cs" />
+    <Compile Include="Generator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UILogic\Operations\EditAdminPassword.cs" />
+    <Compile Include="UILogic\Operations\EditBankAccount.cs" />
+    <Compile Include="UILogic\Operations\EditCardAccount.cs" />
+    <Compile Include="UILogic\Operations\EditClient.cs" />
+    <Compile Include="UILogic\Operations\EditOperator.cs" />
+    <Compile Include="UILogic\Operations\FindBankAccountById.cs" />
+    <Compile Include="UILogic\Operations\FindCardAccountById.cs" />
+    <Compile Include="UILogic\Operations\FindOperatorById.cs" />
+    <Compile Include="UILogic\Operations\FindOperatorFullList.cs" />
+    <Compile Include="UILogic\Operations\IncreaceBalanceBankAccount.cs" />
+    <Compile Include="UILogic\Operations\EditCurrencies.cs" />
+    <Compile Include="UILogic\Operations\FindOperatorByLogin.cs" />
+    <Compile Include="UILogic\Operations\GetAllCurrencies.cs" />
+    <Compile Include="UILogic\Operations\GetNBRBCurrencies.cs" />
+    <Compile Include="UILogic\Operations\AddBankAccount.cs" />
+    <Compile Include="UILogic\Operations\AddOperator.cs" />
+    <Compile Include="UILogic\Operations\RemoveBankAccount.cs" />
+    <Compile Include="UILogic\Operations\RemoveClient.cs" />
+    <Compile Include="UILogic\Operations\RemoveOperator.cs" />
+    <Compile Include="UILogic\BaseOperation.cs" />
+    <Compile Include="UILogic\Operations\FindBankAccountFullList.cs" />
+    <Compile Include="UILogic\Operations\FindCardAccountFullList.cs" />
+    <Compile Include="UILogic\Operations\FindClientFullList.cs" />
+    <Compile Include="UILogic\Operations\FindClientsByLastName.cs" />
+    <Compile Include="UILogic\Operations\LockUnlockAccessCardCliete.cs" />
+    <Compile Include="UILogic\Supporting.cs" />
+    <Compile Include="UILogic\Verifier.cs" />
+    <Compile Include="UILogic\DataSources.cs" />
+    <Compile Include="UILogic\Interfaces\ICustomOperation.cs" />
+    <Compile Include="UILogic\Interfaces\IErrorInformer.cs" />
+    <Compile Include="UILogic\Interfaces\IGetDataSources.cs" />
+    <Compile Include="UILogic\Interfaces\IGetStringSources.cs" />
+    <Compile Include="UILogic\Interfaces\IUIInformer.cs" />
+    <Compile Include="UILogic\Operations\CheckAutentificationOperator.cs" />
+    <Compile Include="UILogic\Operations\FindCardAccountByNumber.cs" />
+    <Compile Include="UILogic\Operations\FindBankAccountByNumber.cs" />
+    <Compile Include="UILogic\Operations\FindClientById.cs" />
+    <Compile Include="UILogic\Operations\FindClientByLogin.cs" />
+    <Compile Include="UILogic\Operations\GetClientInformation.cs" />
+    <Compile Include="UILogic\Operations\LockUnlockCardAccount.cs" />
+    <Compile Include="UILogic\Operations\AddCardAccount.cs" />
+    <Compile Include="UILogic\Operations\AddClient.cs" />
+    <Compile Include="UILogic\Operations\RemoveCardAccount.cs" />
+    <Compile Include="UILogic\RepositoryOperations.cs" />
+    <Compile Include="UILogic\StringSources.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+    <None Include="packages.config" />
+    <None Include="Service References\ServiceReference1\BankService.disco" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\ServiceReference1\BankService.wsdl" />
+    <None Include="Service References\ServiceReference1\BankService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\BankService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\BankService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference2\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference2\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference2\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference2\ExRates.disco" />
+    <None Include="Service References\ServiceReference1\BLL.ServiceReference1.ArbitraryTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\BLL.ServiceReference1.BankAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\BLL.ServiceReference1.CardAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\BLL.ServiceReference1.Currency.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\BLL.ServiceReference1.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\BLL.ServiceReference1.MobileTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\BLL.ServiceReference1.SSISTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\BLL.ServiceReference1.TransferTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Properties\DataSources\BankEntities.ArbitraryTransaction.datasource" />
+    <None Include="Properties\DataSources\BankEntities.BankAccount.datasource" />
+    <None Include="Properties\DataSources\BankEntities.CardAccount.datasource" />
+    <None Include="Properties\DataSources\BankEntities.Currency.datasource" />
+    <None Include="Properties\DataSources\BankEntities.Employee.datasource" />
+    <None Include="Properties\DataSources\BankEntities.MobileTransaction.datasource" />
+    <None Include="Properties\DataSources\BankEntities.SSISTransaction.datasource" />
+    <None Include="Properties\DataSources\BankEntities.TransferTransaction.datasource" />
+    <None Include="Service References\ServiceReference2\ExRates.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference2\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{dea10eb3-ae2e-4f0e-a8c2-d3a5c85e519f}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{79303f4e-d148-43f5-b115-38cc7e0df610}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

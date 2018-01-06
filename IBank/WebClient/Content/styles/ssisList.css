@@ -1,0 +1,115 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.ssis-list-content {
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.ssis-list-content .header {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    padding: 0 10px;
+    margin-top: -20px;
+    background: #0034D1;
+    border-bottom: 5px #00289E solid;
+}
+
+.ssis-groups-path {
+    overflow: hidden;
+}
+
+.ssis-groups-path .bread{
+    list-style: none;
+    padding-top: 10px;
+}
+
+.ssis-groups-path .bread li {
+    float: left;
+    padding-left: 19px;
+    background: url(/Content/images/bred_l.png) no-repeat left top;
+    margin-left: -19px;
+    margin-right: 3px;
+    margin-bottom: 4px;
+}
+
+.ssis-groups-path .bread li a {
+    display: block;
+    padding-right: 19px;
+    background: url(/Content/images/bred_r.png) no-repeat right top;
+    text-decoration: none;
+}
+
+.ssis-groups-path .bread li a span {
+    display: block;
+    height: 49px;
+    line-height: 49px;
+    font-size: 13px;
+    color: #fefffe;
+    padding: 0 10px;
+    background: #00289E;
+}
+
+.ssis-groups-path .bread li.active {
+    background: url(/Content/images/bred_l_a.png) no-repeat left top;
+}
+
+.ssis-groups-path .bread li.active a {
+    background: url(/Content/images/bred_r_a.png) no-repeat right top;
+}
+
+.ssis-groups-path .bread li.active a span {
+    background: #E6BF51;
+}
+
+.ssis-list table {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.ssis-list table td {
+    border: 1px #a9ccbe solid;
+    font-size: 13px;
+    line-height: 14px;
+}
+
+.ssis-list table td a {
+    padding: 10px 50px;
+    display: block;
+    color: #00289E;
+    text-decoration: none;
+}
+
+.ssis-list table td a span {
+    color: #00289E;
+}
+
+.ssis-list table td.Group {
+    background: url(/Content/images/list_td.png) no-repeat 15px center;
+}
+
+.ssis-list table td.Group a {
+    padding: 10px 50px;
+    display: block;
+    color: #575757;
+    text-decoration: none;
+}
+
+.ssis-list table td.Group a span {
+    color: #575757;
+    font-weight: bold;
+}

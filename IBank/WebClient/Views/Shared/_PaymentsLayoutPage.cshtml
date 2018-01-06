@@ -1,0 +1,41 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
+}
+
+@Styles.Render("~/Home/Payments/css")
+
+<div class="home-left-container">
+    <div class="left-menu-nav">
+        <ul>
+            <li>
+                <a href="@Url.Action("Arbitrary")"><div class="blue-button">ПРОИЗВОЛЬНЫЙ ПЛАТЕЖ</div></a>
+            </li>
+            <li>
+                <a href="@Url.Action("SSISList")"><div class="blue-button">СИСТЕМА "РАСЧЕТ" (ЕРИП)</div></a>
+            </li>
+            <li>
+                <div class="ddl-wrapper" style="margin-bottom: 15px">
+                    <div class="blue-button ddl-header" style="margin-bottom: 0">
+                        <span>МОБИЛЬНАЯ СВЯЗЬ</span>
+                    </div>
+                    <ul class="dropped" style="display: none">
+                        <li class="dropped-item"><a href="@Url.Action("Mobile", "Payments")?Provider=MTS">MTC</a></li>
+                        <li class="dropped-item"><a href="@Url.Action("Mobile", "Payments")?Provider=Velcom">Velcom</a></li>
+                        <li class="dropped-item"><a href="@Url.Action("Mobile", "Payments")?Provider=Dialog">Diallog</a></li>
+                        <li class="dropped-item"><a href="@Url.Action("Mobile", "Payments")?Provider=Life">Life :)</a></li>
+                        <li class="dropped-item"><a href="@Url.Action("Create", "MobileAutoPayment")">Автооплата</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="@Url.Action("Transfer", "Payments")"><div class="blue-button">ПЕРЕВОД СРЕДСТВ</div></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="home-right-container">
+    @RenderBody()
+</div>
+

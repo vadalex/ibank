@@ -1,0 +1,51 @@
+﻿@using Models = WebClient.Models;
+
+@model Models.MobilePaymentModel
+
+@{
+    ViewBag.Title = "Информация о платеже";
+    Layout = "~/Views/Shared/_PaymentsLayoutPage.cshtml";
+}
+
+
+@using (Html.BeginForm("ConfirmMobile", "Payments"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="personal-info">
+        <span style="font-size:120%; font-weight: bold;">Данные платежа</span><br />
+        <p></p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Оператор: </td>
+                    <td>@Model.Provider</td>
+                </tr>
+                <tr>
+                    <td>Номер телефона: </td>
+                    <td>@Model.Phone</td>
+                </tr>                
+                <tr>
+                    <td>Номер карточки: </td>
+                    <td>@Model.CardNumber</td>
+                </tr>
+                <tr>
+                    <td>Сумма: </td>
+                    <td>@Model.Amount</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="display: none">
+            @Html.EditorForModel(Model);
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Оплатить" class="btn btn-default" />
+                @Html.ActionLink("Назад", "Mobile", Model, new { @class = "button" })
+            </div>
+        </div>
+    </div>
+
+}

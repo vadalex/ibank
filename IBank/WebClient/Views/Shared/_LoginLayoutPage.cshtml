@@ -1,0 +1,41 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    @Styles.Render("~/Login/css")
+</head>
+<body>
+    <div class="login-main">
+        <div class="login-header">
+            <div class="logo head-element">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/images/logo2.png" />
+                </a>
+            </div>
+        </div>
+        <div class="splitter"></div>
+        <div class="login-menu">
+            <div class="bold login-message">Вход в систему</div>
+        </div>
+        <div class="login-container">
+            <div class="wrapper">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="login-footer">
+            <hr />
+        </div>
+    </div>
+    
+    @Scripts.Render("~/bundles/jquery")
+
+</body>
+</html>

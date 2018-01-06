@@ -1,0 +1,77 @@
+﻿@using System.Web.Optimization
+@using MyWebClient = WebClient;
+
+@model MyWebClient.Models.CurrencyModel
+
+@Styles.Render("~/CardAccountsTable/css")
+
+<div class="currency-rates" style="background-color: white; margin: 20px; padding: 20px; border: 1px solid gray;">
+
+    <p>
+        <span style="font-family: cursive;font-weight: bold;font-size: 18px;margin-bottom: 5px">Курсы валют</span>
+    </p>
+    
+
+    <table class="ibTable" style="margin: 0;margin-bottom: 20px;">
+        <tr>
+            <th>
+                Валюта
+            </th>
+            <th>
+                Банк покупает
+            </th>
+            <th>
+                Банк продает
+            </th>
+        </tr>
+
+        @foreach (var rate in Model.Rates)
+        {
+            <tr>
+                <td>
+                    @rate.Name
+                </td>
+                <td>
+                    @rate.BankBuys
+                </td>
+                <td>
+                    @rate.BankCells
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <p>
+        <span style="font-family: cursive;font-weight: bold;font-size: 18px; margin-top: 20px; margin-bottom: 5px">Кросс-курсы</span>
+    </p>
+    
+
+    <table class="ibTable" style="margin: 0; width: 100%">
+        <tr>
+            <th>
+                Валюты
+            </th>
+            <th>
+                Сообношение
+            </th>
+        </tr>
+
+        @foreach (var key in Model.CrossRates.Keys)
+        {
+            <tr>
+                <td>
+                    @key
+                </td>
+                <td>
+                    @Model.CrossRates[key]
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+

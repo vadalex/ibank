@@ -1,0 +1,118 @@
+﻿@using System.Web.Optimization
+@using MDLS = WebClient.Models;
+
+
+@model IEnumerable<MDLS.MobileAutoPayModel>
+
+@{
+    ViewBag.Title = "Список автооплат";
+    Layout = "~/Views/Shared/_MainLayoutPage.cshtml";
+}
+
+@Styles.Render("~/MobileAutopay/css")
+@Styles.Render("~/CardAccountsTable/css")
+@Styles.Render("~/CardAccounts/css")
+
+<style>
+   a.left {
+       float: right;
+   }
+</style>
+
+<div id="autopayments">
+    <table class="ibTable">
+        <tr>
+            <th>
+            </th>
+            <th>
+                Оператор
+            </th>
+            <th>
+                Номер телефона
+            </th>
+            <th>
+                Сумма
+            </th>
+            <th>
+                Номер карты
+            </th>
+            <th>
+                Интервал
+            </th>
+            <th>
+                Время последней оплаты
+            </th>
+        </tr>
+
+        @if (!Model.Any())
+        {
+            <tr>
+                <td style="height: 40px;">
+                    <span style="position: absolute; font-size: 120%; font-weight: bold; color: red">У вас нету сохраненных автооплат</span>
+                </td>
+            </tr>
+        }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.RadioButton("MobileAutoPayID", item.MobileAutoPayID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Operator)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobileNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardNumber)
+                </td>
+                <td>
+                    @{
+            var time = new TimeSpan(item.IntervalDays, item.IntervalHours, item.IntervalMinutes, 0);
+                    }
+                    @Html.DisplayFor(modelItem => time)
+                </td>
+                <td>
+                    @{
+            string mess = (item.LastPayDate == new DateTime(2000, 1, 1, 1, 1, 1) ? "Ни разу не оплачивалось" : item.LastPayDate.ToString());
+                }
+                @Html.DisplayFor(modelItem => mess)
+            </td>
+        </tr>
+        }
+
+    </table>
+</div>
+
+
+<div class="operations" style="margin-left: 10px; margin-bottom: 20px;">
+    <table>
+        <tbody>
+            <tr>
+                <td class="deleteBtn">
+                    <div class="ibButton">
+                        <button id="deleteBtn">Удалить</button>
+                    </div>
+                </td>
+                <td class="nextBtn">
+                    <div class="ibButton">
+                        <button id="nextBtn">Подробнее</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="ibButton">
+                        <button id="create">Создать</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+@Scripts.Render("~/bundles/mobileAutopayList")

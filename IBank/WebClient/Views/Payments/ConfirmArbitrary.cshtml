@@ -1,0 +1,64 @@
+﻿@using Model = WebClient.Models;
+
+@model Model.ArbitraryPaymentModel
+
+@{
+    ViewBag.Title = "Информация о платеже";
+    Layout = "~/Views/Shared/_PaymentsLayoutPage.cshtml";
+}
+
+
+@using (Html.BeginForm("ConfirmArbitrary", "Payments"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="personal-info">    
+        <span style="font-size:120%; font-weight: bold;">Данные платежа</span><br />
+        <p></p>
+        <table>
+            <tbody>
+            <tr>
+                <td>Банк получатель: </td>
+                <td>@Model.BankName</td>
+            </tr>
+            <tr>
+                <td>УНП: </td>
+                <td>@Model.UNP</td>
+            </tr>
+            <tr>
+                <td>Номер счета получателя: </td>
+                <td>@Model.RecipientAccount</td>
+            </tr>
+            <tr>
+                <td>Получатель: </td>
+                <td>@Model.Recipient</td>
+            </tr>
+            <tr>
+                <td>Цель: </td>
+                <td>@Model.Target</td>
+            </tr>
+            <tr>
+                <td>Номер карточки: </td>
+                <td>@Model.AccountCardNumber</td>
+            </tr>
+            <tr>
+                <td>Сумма: </td>
+                <td>@Model.Amount</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div style="display: none">
+            @Html.EditorForModel(Model);
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Оплатить" class="btn btn-default"/>
+                @Html.ActionLink("Назад", "Arbitrary", Model, new {@class = "button"})
+            </div>
+        </div>
+    </div>
+
+}
+

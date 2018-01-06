@@ -1,0 +1,83 @@
+﻿.clearfix {
+    overflow: auto;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font: 14px/18px Arial,sans-serif;
+}
+
+input, textarea {
+    font-family: Arial;
+}
+
+.middle-text {
+    vertical-align: middle;
+}
+
+.login-main hr {
+    height: 1px;
+    color: #00289e;
+    background-color: #00289e;
+}
+
+.bold {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.text-danger {
+    color: red;
+    text-decoration: none;
+}
+
+.menu-active a{
+    background-color: #00289E !important;
+}
+
+.ddl-header{
+    cursor: pointer;
+}
+
+.dropped-item{
+    min-height: 52px;
+    border-bottom: 1px #e0e0e0 solid;
+    display: block;
+    overflow: hidden;
+}
+
+.dropped-item a{
+    min-height: 52px;
+    color: #363636;
+    font-size: 14px;
+    line-height: 52px;
+    text-decoration: none;
+    background: #fff;
+    display: block;
+    overflow: hidden;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.dropped-item a{
+    min-height: 52px;
+    color: #363636;
+    font-size: 14px;
+    line-height: 52px;
+    text-decoration: none;
+    background: #fff;
+    display: block;
+    overflow: hidden;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.dropped-item a:hover{
+    background-color: #F5E2B9;
+}

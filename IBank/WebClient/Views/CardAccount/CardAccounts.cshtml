@@ -1,0 +1,46 @@
+﻿@using System.Web.Optimization;
+@using MyWebClient = WebClient;
+
+@model IEnumerable<MyWebClient.Models.CardAccountModel>
+
+@{
+    Layout = "~/Views/Shared/_CardAccountsLayoutPage.cshtml";
+}
+
+@{
+    ViewBag.Title = "Платежные карточки";
+}
+
+@Styles.Render("~/CardAccounts/css")
+
+<h2 style="margin: 20px 0 10px 10px">Платежные карточки</h2>
+
+<div id="cards">
+    @{Html.RenderAction("CardAccountsPartial", "CardAccount");}
+</div> 
+
+<div class="operations" style="margin-left: 10px; margin-bottom: 20px;">
+    <table>
+        <tbody>
+        <tr>
+            <td class="block">
+                <div class="ibButton">
+                    <button id="block">Заблокировать</button>
+                </div>
+            </td>
+            <td class="unblock">
+                <div class="ibButton">
+                    <button id="unblock">Разбокировать</button>
+                </div>
+            </td>
+            <td class="nameChange">
+                <div class="ibButton">
+                    <button id="nameChange">Смена наименования</button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+@Scripts.Render("~/bundles/cardAccountsButtonsRefresh")

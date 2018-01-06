@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="UIControlLibrary.SearchEngines.FindAC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:UIControlLibrary.SearchEngines"
+			 xmlns:my2="clr-namespace:UIControlLibrary.Components"
+			 x:Name="This"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+		<TextBlock>Поиск карт-счета</TextBlock>
+		<TabControl>
+			<TabItem Header="По номеру">
+				<StackPanel>
+					<TextBlock>Введите номер карт счета и нажмите найти</TextBlock>
+					<TextBox x:Name="UIIDAC">
+						<TextBox.Text>
+							<Binding Path="CANumber" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+								<Binding.ValidationRules >
+									<DataErrorValidationRule/>
+								</Binding.ValidationRules>
+							</Binding>
+						</TextBox.Text>
+					</TextBox>
+					<Button Name="UIButtonFind" Click="UIButtonFind_Click" Content="Найти"/>
+				</StackPanel>
+			</TabItem>
+			
+			<TabItem Header="Полным списком">
+				<my:ListFindClientControl x:Name="UIFullList"/>
+			</TabItem>			
+
+		</TabControl>
+		<my2:Message x:Name="UIMessage" TextMessage=""/>
+		
+	</StackPanel>
+</UserControl>

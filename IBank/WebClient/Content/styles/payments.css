@@ -1,0 +1,57 @@
+﻿input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    margin-bottom: 0;
+}
+
+input[type="submit"] {
+    width: inherit;
+    margin: 20px;
+}
+
+.payment-info{
+    margin: 20px 10px 20px 10px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.home-right-container{
+    width: 850px !important;
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.payment-info td{
+    padding-right: 10px;
+}
+
+.blue-header{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-height: 44px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 44px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #0034D1;
+    border-bottom: 5px #00289E solid;
+    margin-left: 0;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    position: relative;
+}
+
+a.button {
+    display: inline-block;
+    position: relative;
+    width: initial;
+    height: initial;
+    line-height: initial;
+    top: -3px;
+}

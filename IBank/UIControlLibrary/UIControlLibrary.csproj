@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{033C6A8E-CF39-435B-AE9D-D5683748622D}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UIControlLibrary</RootNamespace>
+    <AssemblyName>UIControlLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Components\BankAccountDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ButtonLink.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\CurrenciesTitleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\CurrencyItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\Message.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\BankAccounFormControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\CardAccountFormControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ClientFormControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\OperatorFormControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchEngines\FindAB.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchEngines\FindAC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchEngines\FindClient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchEngines\FindOperatorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchEngines\ListFindClientControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchEngines\SelectCurrencyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sources\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Components\BankAccountDialog.xaml.cs">
+      <DependentUpon>BankAccountDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ButtonLink.xaml.cs">
+      <DependentUpon>ButtonLink.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CurrenciesTitleControl.xaml.cs">
+      <DependentUpon>CurrenciesTitleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CurrencyItem.xaml.cs">
+      <DependentUpon>CurrencyItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Message.xaml.cs">
+      <DependentUpon>Message.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BankAccounFormControl.xaml.cs">
+      <DependentUpon>BankAccounFormControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardAccountFormControl.xaml.cs">
+      <DependentUpon>CardAccountFormControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClientFormControl.xaml.cs">
+      <DependentUpon>ClientFormControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperatorFormControl.xaml.cs">
+      <DependentUpon>OperatorFormControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IClearUI.cs" />
+    <Compile Include="Interfaces\IForm.cs" />
+    <Compile Include="Interfaces\IFrame.cs" />
+    <Compile Include="Interfaces\IGetBLL.cs" />
+    <Compile Include="Interfaces\IIdClient.cs" />
+    <Compile Include="SearchEngines\FindAB.xaml.cs">
+      <DependentUpon>FindAB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEngines\FindAC.xaml.cs">
+      <DependentUpon>FindAC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEngines\FindClient.xaml.cs">
+      <DependentUpon>FindClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEngines\FindOperatorControl.xaml.cs">
+      <DependentUpon>FindOperatorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEngines\ListFindClientControl.xaml.cs">
+      <DependentUpon>ListFindClientControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEngines\SelectCurrencyControl.xaml.cs">
+      <DependentUpon>SelectCurrencyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\AddParamConverter.cs" />
+    <Compile Include="Sources\ExeptionHandler.cs" />
+    <Compile Include="Sources\MultipleParamConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{e6d14e23-51d2-4d5e-a7ed-e05bceb8fbe4}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{79303f4e-d148-43f5-b115-38cc7e0df610}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sources\logotype.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

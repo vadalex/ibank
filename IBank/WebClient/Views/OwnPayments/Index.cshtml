@@ -1,0 +1,97 @@
+﻿@using Models = WebClient.Models;
+@using System.Web.Optimization;
+
+@model Models.OwnPaymentsModel
+
+@{
+    ViewBag.Title = "Собственные платежи";
+    Layout = "~/Views/Shared/_MainLayoutPage.cshtml";
+}
+
+@Styles.Render("~/OwnPayments/css")
+@System.Web.Optimization.Styles.Render("~/CardAccounts/css")
+
+<h2 style="margin: 20px 0 10px 10px">Собственные платежи</h2>
+
+<div id="ownPaymentsDiv">
+    <table class="OPTable">
+        <tr>
+            <th>
+            </th>
+            <th>
+                Название платежа
+            </th>
+        </tr>
+        @foreach (var item in Model.Arbitrary)
+        {
+            <tr>
+                <td style="width: 20px;">
+                    @Html.RadioButton("OwnPaymentsList", "Arbitrary/" + item.OwnArbitraryPaymentID, false)
+                </td>
+                <td>
+                    @Html.ActionLink(item.Name, "OwnPayment", new {type = "Arbitrary", paymentId = item.OwnArbitraryPaymentID}, new {@class = "paymentName"})
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model.SSIS)
+        {
+            <tr>
+                <td style="width: 20px;">
+                    @Html.RadioButton("OwnPaymentsList", "SSIS/" + item.OwnSSISPaymentID, false)
+                </td>
+                <td>
+                    @Html.ActionLink(item.Name, "OwnPayment", new {type = "SSIS", paymentId = item.OwnSSISPaymentID}, new {@class = "paymentName"})
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model.Mobile)
+        {
+            <tr>
+                <td style="width: 20px;">
+                    @Html.RadioButton("OwnPaymentsList", "Mobile/" + item.OwnMobilePaymentID, false)
+                </td>
+                <td>
+                    @Html.ActionLink(item.Name, "OwnPayment", new {type = "Mobile", paymentId = item.OwnMobilePaymentID}, new {@class = "paymentName"})
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model.Transfer)
+        {
+            <tr>
+                <td style="width: 20px;">
+                    @Html.RadioButton("OwnPaymentsList", "Transfer/" + item.OwnTransferPaymentID, false)
+                </td>
+                <td>
+                    @Html.ActionLink(item.Name, "OwnPayment", new {type = "Transfer", paymentId = item.OwnTransferPaymentID}, new {@class = "paymentName"})
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div class="operations" style="margin-left: 10px; margin-bottom: 20px;">
+    <table>
+        <tbody>
+            <tr>
+                <td class="nameChangeBtn">
+                    <div class="ibButton">
+                        <button id="nameChangeBtn">Изменить имя</button>
+                    </div>
+                </td>
+                <td class="deleteBtn">
+                    <div class="ibButton">
+                        <button id="deleteBtn">Удалить</button>
+                    </div>
+                </td>
+                <td class="nextBtn">
+                    <div class="ibButton">
+                        <button id="nextBtn">Дальше</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@Scripts.Render("~/bundles/ownPayments")

@@ -1,0 +1,30 @@
+﻿<Window x:Class="IOperator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+			
+			 xmlns:my2="clr-namespace:IOperator.AutentificationsOperator"
+		x:Name="This"
+        Title="Приложение операциониста" Height="600" Width="700">
+
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/UIControlLibrary;component/Sources/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+
+	</Window.Resources>
+
+
+	<ScrollViewer  >
+
+		<StackPanel x:Name="UIMainFrame">
+			<my2:LoginControl x:Name="UILogin" />
+		</StackPanel>
+
+
+	</ScrollViewer>
+
+
+</Window>

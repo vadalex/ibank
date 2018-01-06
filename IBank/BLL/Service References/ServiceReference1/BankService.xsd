@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BankEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BankEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="MobileTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="CardAccountID" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MobileProvider" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileTransactionID" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:PaymentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MobileTransaction" nillable="true" type="tns:MobileTransaction" />
+  <xs:simpleType name="PaymentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Arbitrary" />
+      <xs:enumeration value="SSIS" />
+      <xs:enumeration value="Transfer" />
+      <xs:enumeration value="Mobile" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentType" nillable="true" type="tns:PaymentType" />
+  <xs:complexType name="ArbitraryTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="ArbitraryTransactionID" type="xs:int" />
+      <xs:element minOccurs="0" name="BankCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardAccountID" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Recipient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecipientAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Target" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:PaymentType" />
+      <xs:element minOccurs="0" name="UNP" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArbitraryTransaction" nillable="true" type="tns:ArbitraryTransaction" />
+  <xs:complexType name="SSISTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="CardAccountID" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SSISPaymentID" type="xs:int" />
+      <xs:element minOccurs="0" name="SSISTransactionID" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" type="tns:PaymentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SSISTransaction" nillable="true" type="tns:SSISTransaction" />
+  <xs:complexType name="TransferTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="CardAccountID" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetCardAccountID" type="xs:int" />
+      <xs:element minOccurs="0" name="TransferTransactionID" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" type="tns:PaymentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferTransaction" nillable="true" type="tns:TransferTransaction" />
+  <xs:complexType name="BankAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Balance" type="xs:double" />
+      <xs:element minOccurs="0" name="BankAccountID" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CurrencyID" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsLocked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankAccount" nillable="true" type="tns:BankAccount" />
+  <xs:complexType name="ArrayOfBankAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankAccount" nillable="true" type="tns:BankAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankAccount" nillable="true" type="tns:ArrayOfBankAccount" />
+  <xs:complexType name="ArrayOfCardAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CardAccount" nillable="true" type="tns:CardAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCardAccount" nillable="true" type="tns:ArrayOfCardAccount" />
+  <xs:complexType name="CardAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BankAccountID" type="xs:int" />
+      <xs:element minOccurs="0" name="CardAccountID" type="xs:int" />
+      <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExpiredDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsLocked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CardAccount" nillable="true" type="tns:CardAccount" />
+  <xs:complexType name="ArrayOfEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
+  <xs:complexType name="Employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="Currency">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrencyID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rate" type="xs:double" />
+      <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Currency" nillable="true" type="tns:Currency" />
+  <xs:complexType name="ArrayOfCurrency">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Currency" nillable="true" type="tns:Currency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCurrency" nillable="true" type="tns:ArrayOfCurrency" />
+  <xs:complexType name="ArrayOfArbitraryTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArbitraryTransaction" nillable="true" type="tns:ArbitraryTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArbitraryTransaction" nillable="true" type="tns:ArrayOfArbitraryTransaction" />
+  <xs:complexType name="ArrayOfMobileTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MobileTransaction" nillable="true" type="tns:MobileTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMobileTransaction" nillable="true" type="tns:ArrayOfMobileTransaction" />
+  <xs:complexType name="ArrayOfTransferTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferTransaction" nillable="true" type="tns:TransferTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransferTransaction" nillable="true" type="tns:ArrayOfTransferTransaction" />
+  <xs:complexType name="ArrayOfSSISTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SSISTransaction" nillable="true" type="tns:SSISTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSSISTransaction" nillable="true" type="tns:ArrayOfSSISTransaction" />
+</xs:schema>

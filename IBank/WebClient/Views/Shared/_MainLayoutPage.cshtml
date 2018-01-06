@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
+}
+
+<div class="home-left-container">
+    <div class="hello-container">
+        <span class="hello">Добро пожаловать,</span>
+        <p>
+            <span class="last-name hello-text">@ViewBag.LastName</span>
+            <span class="first-name hello-text">@ViewBag.FirstName</span>
+            <span class="middle-name hello-text">@ViewBag.MiddleName</span>
+        </p>
+    </div>
+    <div class="left-menu-nav">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "CardAccount")"><div class="blue-button">ПЛАТЕЖНЫЕ КАРТЫ</div></a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "OwnPayments")">
+                    <div class="blue-button">СОБСТВЕННЫЕ ПЛАТЕЖИ</div></a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "MobileAutoPayment")"><div class="blue-button">АВТООПЛАТА МОБИЛЬНОЙ СВЯЗИ</div></a>
+            </li>
+            <li>
+                <div class="ddl-wrapper">
+                    <div class="blue-button ddl-header" style="margin-bottom: 0">
+                        <span>ПЕРСОНАЛЬНЫЕ НАСТОЙКИ</span>
+                    </div>
+                    <ul class="dropped" style="display: none">
+                        <li class="dropped-item"><a href="@Url.Action("PersonalInfo", "Home")">ЛИЧНЫЕ ДАННЫЕ</a></li>
+                        <li class="dropped-item"><a href="@Url.Action("PasswordReset", "Home")">СМЕНА ПАРОЛЯ</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="home-right-container">
+    @RenderBody()
+</div>
+

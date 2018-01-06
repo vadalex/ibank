@@ -1,0 +1,43 @@
+﻿@model Entities.Customer
+
+@{
+    ViewBag.Title = "Персональная информация";
+    Layout = "~/Views/Shared/_MainLayoutPage.cshtml";
+}
+
+<div class="personal-info">
+    <span style="font-size:120%; font-weight: bold;">Данные клиента</span><br />
+    <p></p>
+    <table>
+        <tbody>
+            <tr>
+                <td>Имя: </td>
+                <td>@Model.FirstName</td>
+            </tr>
+            <tr>
+                <td>Фамилия: </td>
+                <td>@Model.LastName</td>
+            </tr>
+            <tr>
+                <td>Отчество: </td>
+                <td>@Model.MiddleName</td>
+            </tr>
+            <tr>
+                <td>Адрес: </td>
+                <td>@Model.Address</td>
+            </tr>
+            <tr>
+                <td>Номер пасспорта: </td>
+                <td>@Model.PassportNumber</td>
+            </tr>
+            <tr>
+                <td>Страна: </td>
+                <td>@Model.Country</td>
+            </tr>
+            <tr>
+                <td>Электнонная почта: </td>
+                <td>@Model.Email</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

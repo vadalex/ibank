@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="UIControlLibrary.Forms.ClientFormControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 x:Name="This"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+		<Border BorderBrush="LightGreen" BorderThickness="2.5">
+			<StackPanel>
+				<Border >
+					<TextBlock>Будьте внимательны при заполнении полей:</TextBlock>
+				</Border>
+
+				<TextBlock x:Name="UILoginTB">Логин</TextBlock>
+				<TextBox x:Name="UILogin">
+					<TextBox.Text>
+						<Binding Path="Login" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+							<Binding.ValidationRules >
+								<DataErrorValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+
+				<TextBlock x:Name="UIPasswordTB">Пароль</TextBlock>
+				<TextBox x:Name="UIPassword">
+					<TextBox.Text>
+						<Binding Path="Password" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+							<Binding.ValidationRules >
+								<DataErrorValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+
+				<TextBlock >Наименование страны</TextBlock>
+				<ComboBox x:Name="UILandName" IsEditable="True">
+					<ComboBox.ItemsSource>
+						<Binding Path="LandNames" ElementName="This" UpdateSourceTrigger="PropertyChanged" />
+					</ComboBox.ItemsSource>
+					<ComboBox.Text>
+						<Binding Path="LandName" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+							<Binding.ValidationRules >
+								<DataErrorValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</ComboBox.Text>
+				</ComboBox>
+
+				<TextBlock >Адрес прописки</TextBlock>
+				<TextBox x:Name="UIAddress">
+					<TextBox.Text>
+						<Binding Path="Address" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+							<Binding.ValidationRules >
+								<DataErrorValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+
+				<TextBlock >Идентификационный номер паспорта</TextBlock>
+				<TextBox x:Name="UIUserIDPasport">
+					<TextBox.Text>
+						<Binding Path="PassportNum" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+							<Binding.ValidationRules >
+								<DataErrorValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+
+				<TextBlock >Фамилия</TextBlock>
+				<TextBox x:Name="UIUserName">
+					<TextBox.Text>
+						<Binding Path="LastName" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+							<Binding.ValidationRules >
+								<DataErrorValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+
+				<TextBlock >Имя</TextBlock>
+				<TextBox x:Name="UIUserName2">
+					<TextBox.Text>
+						<Binding Path="FirstName" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+							<Binding.ValidationRules >
+								<DataErrorValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+
+				<TextBlock >Отчество</TextBlock>
+				<TextBox x:Name="UIUserName3">
+					<TextBox.Text>
+						<Binding Path="MiddleName" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+							<Binding.ValidationRules >
+								<DataErrorValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+
+				<TextBlock >Электронный адрес почты</TextBlock>
+				<ComboBox x:Name="IUEMail" IsEditable="True">
+					<ComboBox.ItemsSource>
+						<Binding Path="Emails" ElementName="This" UpdateSourceTrigger="PropertyChanged" />
+					</ComboBox.ItemsSource>
+					<ComboBox.Text>
+						<Binding Path="EMail" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+							<Binding.ValidationRules >
+								<DataErrorValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</ComboBox.Text>
+				</ComboBox>
+
+				<TextBlock x:Name="UILockTB">Блокировка учетной записи</TextBlock>
+				<CheckBox x:Name="UILock">
+					<CheckBox.IsChecked>
+						<Binding Path="IsLock" ElementName="This" UpdateSourceTrigger="PropertyChanged" />
+					</CheckBox.IsChecked>
+				</CheckBox>
+
+			</StackPanel>
+		</Border>
+	</StackPanel>
+</UserControl>

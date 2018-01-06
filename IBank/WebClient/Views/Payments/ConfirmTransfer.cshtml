@@ -1,0 +1,51 @@
+﻿@using Model = WebClient.Models;
+
+@model Model.TransferModel
+
+@{
+    ViewBag.Title = "Информация о платеже";
+    Layout = "~/Views/Shared/_PaymentsLayoutPage.cshtml";
+}
+
+
+@using (Html.BeginForm("ConfirmTransfer", "Payments"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="personal-info">        
+        <span style="font-size:120%; font-weight: bold;">Данные перевода</span><br />
+        <p></p>
+        <table>
+            <tbody>
+            <tr>
+                <td>Номер карточки </td>
+                <td>@Model.CardNumber</td>
+            </tr>
+            <tr>
+                <td>Номер карты получателя </td>
+                <td>@Model.TargetCardAccountNumber</td>
+            </tr>
+            <tr>
+                <td>Сумма </td>
+                <td>@Model.Amount</td>
+            </tr>
+            <tr>
+                <td>Сообщение </td>
+                <td>@Model.Message</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div style="display: none">
+            @Html.EditorForModel(Model);
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Перевести" class="btn btn-default" />
+                @Html.ActionLink("Назад", "Transfer", Model, new { @class = "button" })
+            </div>
+        </div>
+    </div>
+
+}

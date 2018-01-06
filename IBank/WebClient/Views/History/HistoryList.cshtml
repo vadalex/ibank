@@ -1,0 +1,86 @@
+﻿@using System.Web.Optimization
+@using System.Web.Mvc;
+@using WebClient.BusinessLogic;
+
+@using Mdls = WebClient.Models;
+
+@model Mdls.HistoryListModel
+
+@{
+    ViewBag.Title = "История платежей";
+    Layout = "~/Views/Shared/_HistoryLayoutPage.cshtml";
+}
+
+@Styles.Render("~/CardAccountsTable/css")
+
+<div class="history-list-wrapper">
+
+    <span style="font-size: 1.3em;font-weight: 500;margin-left: 20px;">Платежи</span>
+    <table class="ibTable">
+        <tr>
+            <th>
+                Дата
+            </th>
+            <th>
+                Номер карты
+            </th>
+            <th>
+                Получатель
+            </th>
+            <th>
+                Сумма
+            </th>
+            <th>
+                Валюта
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Items)
+        {
+            <tr data-id="@item.TransactionId" data-type="@item.Type">
+                <td class="date">
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td class="card-number">
+                    @Html.DisplayFor(modelItem => item.CardNumber)
+                </td>
+                <td class="recipient">
+                    @Html.DisplayFor(modelItem => item.Recipient)
+                </td>
+                <td class="amount">
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td class="currency">
+                    @Html.DisplayFor(modelItem => item.Currency)
+                </td>
+                @Html.HiddenFor(modelItem => item.TransactionId)
+                @Html.HiddenFor(modelItem => item.Type)
+            </tr>
+        }
+    </table>
+    
+
+    @Html.ActionLink("Назад", "Index", new object() , new {@class="button", @id="back"})
+
+    
+
+        @using (Html.BeginForm("HistoryList", "History"))
+        {
+            <input type="hidden" name="item.CardAccount.CardAccountID" value="@Model.BackRouteValues["item.CardAccount.CardAccountID"]" />
+            <input type="hidden" name="datepicker-from" value="@Model.BackRouteValues["datepicker-from"]" />
+            <input type="hidden" name="datepicker-to" value="@Model.BackRouteValues["datepicker-to"]" />
+            <input type="hidden" name="arbitrary_payments" value="@Model.BackRouteValues["arbitrary_payments"]" />
+            <input type="hidden" name="ssisp_payments" value="@Model.BackRouteValues["ssisp_payments"]" />
+            <input type="hidden" name="mobile_payments" value="@Model.BackRouteValues["mobile_payments"]" />
+            <input type="hidden" name="transfer_payments" value="@Model.BackRouteValues["transfer_payments"]" />
+            <input type="hidden" id="id" name="id"/>
+            <input type="hidden" id="type" name="type"/>
+            <div style="position: absolute;bottom: 10px;right: 10px;display: inline-block;">
+                <input type="submit" style="width: 118px; margin-top: 10px; margin-left: 20px; margin-right: 20px;" value="Подробнее" id="details" class="btn btn-default" />
+            </div>
+        }
+</div>
+
+
+
+@Scripts.Render("~/bundles/historyList")

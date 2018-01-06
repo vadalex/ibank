@@ -1,0 +1,91 @@
+﻿.main {
+    width: 1200px;
+    min-height: 100%;
+    height: 100%;
+    height: auto !important;
+    background-color: #F3F3F3;
+    margin: 0 auto -80px;
+}
+
+.content{
+    
+}
+
+.content:after{
+    visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 80px;
+}
+
+.home-left-container{
+    float: left;
+    font-family: Verdana;
+    width: 340px;
+}
+
+.home-right-container{
+    float: left;
+}
+
+input {
+    width: 414px;
+    height: 34px;
+    padding: 0 15px 0 15px;
+    line-height: 34px;
+    border: 1px #d1e7dc solid;
+    font-size: 18px;
+    color: #595d5b;
+    margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+    width: 34px;
+}
+
+input[type="submit"]{
+    width: 85px;
+    height: 36px;
+    line-height: 35px;
+    background: #e7bf50;
+    border: none;
+    border-bottom: 7px #ddab48 solid;
+    border-right: 1px solid #e7bf50;
+    border-left: 1px solid #e7bf50;
+    border-top: 1px solid #e7bf50;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    padding: 0 20px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.button{
+    width: 85px;
+    height: 36px;
+    line-height: 35px;
+    background: #e7bf50;
+    border: none;
+    border-bottom: 7px #ddab48 solid;
+    border-right: 1px solid #e7bf50;
+    border-left: 1px solid #e7bf50;
+    border-top: 1px solid #e7bf50;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    padding: 0 20px;
+    cursor: pointer;
+    padding: 7px 10px 7px 10px;
+    margin-bottom: 5px;
+}
+
+.button:hover {
+    background-color: #f1cf57
+}
+
+input[type="submit"]:hover {
+    background-color: #f1cf57
+}

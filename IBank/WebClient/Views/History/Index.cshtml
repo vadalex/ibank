@@ -1,0 +1,92 @@
+﻿
+@model string
+
+@{
+    ViewBag.Title = "История платежей";
+    Layout = "~/Views/Shared/_HistoryLayoutPage.cshtml";
+}
+
+@using (Html.BeginForm("Index", "History"))
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="search-params">
+        <div style="margin-left: 0;" class="search-params-header blue-header"><span style="margin-left: 15px;">Укажите параметры операции поиска</span></div>
+        <br/>
+        <span style="margin: 0 0 20px 20px;" class="text-danger" style="font-size: 1.2em">@Model</span>
+        <br/>
+        <div class="card-selection">
+            <span style="margin-left: 12px; font-size: 1.2em">Карты</span>
+            @{Html.RenderAction("CardAccountsSelectPartial", "CardAccount");}
+        </div>
+        <br />
+        <div class="date-selection" style="margin-left: 10px;margin-top: 20px; position: relative">
+            <span style="position: absolute; top: -20px;" class="field-validation-error text-danger" data-valmsg-for="datepicker-from" data-valmsg-replace="true"></span>
+            <span class="">Период с: </span>
+            <input type="text" id="datepicker-from" data-val="true" data-val-required="Укажите дату начала поиска" name="datepicker-from"/>
+            <span style="position: absolute; top: -20px;" class="field-validation-error text-danger" data-valmsg-for="datepicker-to" data-valmsg-replace="true"></span>
+            <span class="">по: </span>
+            <input type="text" id="datepicker-to" data-val="true" data-val-required="Укажите дату конца поиска" name="datepicker-to"/>
+        </div>
+        <br/>
+        <div class="payments-types-selection">
+            <table>
+                <tr>
+                    <td class="selection">
+                        <input type="checkbox" name="select_all" value="select_all" id="select_all"/>
+                    </td>
+                    <td class="description">
+                        Выбрать все
+                    </td>
+                </tr>
+                <tr>
+                    <td class="selection">
+                        <input type="checkbox" class="payment" name="arbitrary_payments" value="arbitrary_payments"/>
+                    </td>
+                    <td class="description">
+                        Произвольные платежи
+                    </td>
+                </tr>
+                <tr>
+                    <td class="selection">
+                        <input type="checkbox" class="payment" name="ssisp_payments" value="ssisp_payments" />
+                    </td>
+                    <td class="description">
+                        Платежи ЕРИП
+                    </td>
+                </tr>
+                <tr>
+                    <td class="selection">
+                        <input type="checkbox" class="payment" name="mobile_payments" value="mobile_payments" />
+                    </td>
+                    <td class="description">
+                        Оплата мобильной связи
+                    </td>
+                </tr>
+                <tr>
+                    <td class="selection">
+                        <input type="checkbox" class="payment" name="transfer_payments" value="transfer_payments" />
+                    </td>
+                    <td class="description">
+                        Перевод средств
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <div class="next-button">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" style="width: 118px; margin-top: 10px; margin-left: 20px;" value="Продолжить" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+

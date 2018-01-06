@@ -1,0 +1,46 @@
+﻿table.ibTable {
+    margin: 10px 10px 10px 10px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    font-family: Verdana;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table.ibTable input{
+    width: 15px;
+    height: 15px;
+    margin-bottom: 0;
+}
+
+    table.ibTable thead {
+        border: 1px solid #f6e0a1;
+        border-bottom: none;
+    }
+
+    table.ibTable th {
+        font-size: 12px;
+        line-height: 16px;
+        text-align: left;
+        vertical-align: bottom;
+        background: #e8af3e;
+        color: #fff;
+        height: 32px;
+        padding: 5px 10px;
+        border-right: 1px #edb640 solid;
+        text-align: center;
+    }
+
+        table.ibTable th.borderBottom {
+            border-bottom: 1px #edb640 solid;
+        }
+
+    table.ibTable td {
+        font-size: 14px;
+        line-height: 16px;
+        color: #504f4f;
+        border-bottom: 1px #e0e0e0 solid;
+        vertical-align: middle;
+        text-align: center;
+        padding: 10px;
+    }

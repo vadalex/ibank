@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="UIControlLibrary.Forms.CardAccountFormControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 x:Name="This"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+
+		<TextBlock x:Name="UICardNumberTB">Номер карт счета</TextBlock>
+		<TextBox x:Name="UICardAccountNumber">
+			<TextBox.Text>
+				<Binding Path="Number" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+					<Binding.ValidationRules >
+						<DataErrorValidationRule/>
+					</Binding.ValidationRules>
+				</Binding>
+			</TextBox.Text>
+		</TextBox>
+
+		<TextBlock>Название карт-счета</TextBlock>
+		<ComboBox x:Name="UINameCA" IsEditable="True">
+			<ComboBox.ItemsSource>
+				<Binding Path="Names" ElementName="This" UpdateSourceTrigger="PropertyChanged" />
+			</ComboBox.ItemsSource>
+			<ComboBox.Text>
+				<Binding Path="Namee" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+					<Binding.ValidationRules >
+						<DataErrorValidationRule/>
+					</Binding.ValidationRules>
+				</Binding>
+			</ComboBox.Text>
+		</ComboBox>
+
+		<TextBlock>Тип карт-счета</TextBlock>
+		<ComboBox x:Name="UITypeCA" IsEditable="True">
+			<ComboBox.ItemsSource>
+				<Binding Path="Types" ElementName="This" UpdateSourceTrigger="PropertyChanged" />
+			</ComboBox.ItemsSource>
+			<ComboBox.Text>
+				<Binding Path="Type" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+					<Binding.ValidationRules >
+						<DataErrorValidationRule/>
+					</Binding.ValidationRules>
+				</Binding>
+			</ComboBox.Text>
+		</ComboBox>
+
+		<TextBlock>Дата истечения срока использования карт-счета</TextBlock>
+		<DatePicker x:Name="UIExpiredDate"  >
+			<DatePicker.SelectedDate >
+				<Binding Path="ExpiredDate" ElementName="This" UpdateSourceTrigger="PropertyChanged" StringFormat="d" Mode="TwoWay" >
+					<Binding.ValidationRules >
+						<DataErrorValidationRule/>
+					</Binding.ValidationRules>
+				</Binding>
+			</DatePicker.SelectedDate>
+		</DatePicker>
+
+		<TextBlock x:Name="UIStatusTB">Статус карт-счета</TextBlock>
+		<ComboBox x:Name="UIStatusCA" IsEditable="True">
+			<ComboBox.ItemsSource>
+				<Binding Path="Statuses" ElementName="This" UpdateSourceTrigger="PropertyChanged" />
+			</ComboBox.ItemsSource>
+			<ComboBox.Text>
+				<Binding Path="Status" ElementName="This" UpdateSourceTrigger="PropertyChanged" >
+					<Binding.ValidationRules >
+						<DataErrorValidationRule/>
+					</Binding.ValidationRules>
+				</Binding>
+			</ComboBox.Text>
+		</ComboBox>
+		
+		<TextBlock x:Name="UILockTB">Блокировка карт-счета</TextBlock>
+		<CheckBox x:Name="UILock">
+			<CheckBox.IsChecked>
+				<Binding Path="IsLock" ElementName="This" UpdateSourceTrigger="PropertyChanged" />
+			</CheckBox.IsChecked>
+		</CheckBox>
+		
+	</StackPanel>
+</UserControl>

@@ -1,0 +1,90 @@
+﻿@using MyModels = WebClient.Models;
+
+@model MyModels.SSISPaymentModel
+
+@{
+    ViewBag.Title = "ЕРИП платеж";
+    Layout = "~/Views/Shared/_PaymentsLayoutPage.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    Html.RenderAction("CardAccountsPartial", "CardAccount", new { cardNumber = Model.CardNumber, cardId = Model.CardAccountID });
+
+    <div class="payment-info">
+        <span style="font-size: 120%; font-weight: bold;">Данные платежа</span><br />
+        <br />
+        <span style="color: red">@Html.ValidationMessage("CustomError")</span><br />
+        <br />
+
+        <table>
+            <tbody>
+                <tr style="height: 30px">
+                    <td>Название</td>
+                    <td>
+                        <div style="padding-left: 75px;">
+                            @Html.DisplayFor(model => model.Name)
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 30px">
+                    <td>Информация</td>
+                    <td>
+                        <div style="padding-left: 75px;">
+                            @Html.DisplayFor(model => model.Information)
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <span style="color: red; margin-bottom: 30px;">Обязательные поля почемены знаком - *</span><br />
+        <table>
+            <tbody>
+                <tr>
+                    <td>@Model.NumberLabel <span style="color: red">*</span></td>
+                    <td>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })<br />
+                            @Html.EditorFor(model => model.Number, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Сумма </td>
+                    <td>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })<br />
+                            @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </td>
+                </tr>
+                @if (!Model.FromOwnPayments)
+                {
+                    <tr>
+                        <td>В собственные платежи? </td>
+                        <td>
+                            <div>
+                                @Html.CheckBox("ToOwnPayments", false)
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.HiddenFor(model => model.SSISPaymentID)
+        @Html.HiddenFor(model => model.Group)
+        @Html.HiddenFor(model => model.Information)
+        @Html.HiddenFor(model => model.Name)
+        @Html.HiddenFor(model => model.NumberLabel)
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Оплатить" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

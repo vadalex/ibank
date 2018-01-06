@@ -1,0 +1,63 @@
+﻿@using System.Web.Optimization
+@using Mdls = WebClient.Models;
+@model Mdls.SSISListModel
+
+@{
+    ViewBag.Title = "Список ЕРИП платежей";
+    Layout = "~/Views/Shared/_PaymentsLayoutPage.cshtml";
+}
+
+@Styles.Render("~/SSISList/css")
+
+<div class="ssis-list-content">
+    <div class="header">
+        Дерево ЕРИП
+    </div>
+    <div class="ssis-list-wrapper">
+        <div class="ssis-groups-path">
+            <ul class="bread">
+                @{
+                    var lastGroup = Model.GroupsPath.Last();
+                }
+                @foreach (var group in Model.GroupsPath)
+                {
+                    if (group != lastGroup)
+                    {
+                        <li>
+                            <a href="@Url.Action("SSISList", new RouteValueDictionary() {{"id", group.SSISGroupID}})">
+                                <span>@group.GroupName</span>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="active">
+                            <a href="@Url.Action("SSISList", new RouteValueDictionary() {{"id", group.SSISGroupID}})">
+                                <span>@group.GroupName</span>
+                            </a>
+                        </li>
+                    }
+
+                }
+            </ul>
+        </div>
+        <div class="ssis-list">
+            <table>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td class="@item.Type.ToString()">
+                                <a href="@Url.Action(item.Type.ToString() == "Group" ? "SSISList" : "SSIS", new RouteValueDictionary() { { "id", item.Id } })">
+                                    <span>
+                                        @item.Label
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
